@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}
+    ::-webkit-scrollbar{display:none;}
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-variant": "#e0e3e5",
+            "outline": "#76777d",
+            "tertiary": "#000000",
+            "background": "#f8fafc",
+            "primary": "#0f172a",
+            "on-primary": "#ffffff",
+            "surface": "#ffffff",
+            "surface-container": "#ffffff",
+            "surface-container-high": "#f1f5f9",
+            "surface-container-lowest": "#f8fafc",
+            "on-surface": "#0f172a",
+            "on-surface-variant": "#64748b"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.375rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin-tablet": "2rem",
+            "space-md": "1rem",
+            "space-xl": "3rem",
+            "margin-mobile": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin": "4rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem"
+          },
+          fontFamily: {
+            "display-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-ui": ["Plus Jakarta Sans"],
+            "label-mono": ["JetBrains Mono"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "display-mobile": ["2.75rem", {lineHeight: "1.1", letterSpacing: "-0.025em", fontWeight: "700"}],
+            "body-sm": ["0.8125rem", {lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400"}],
+            "display": ["4.25rem", {lineHeight: "1.08", letterSpacing: "-0.035em", fontWeight: "700"}],
+            "headline-md": ["2rem", {lineHeight: "1.25", letterSpacing: "-0.02em", fontWeight: "600"}],
+            "headline-sm": ["1.25rem", {lineHeight: "1.35", letterSpacing: "-0.015em", fontWeight: "600"}],
+            "label-ui": ["0.8125rem", {lineHeight: "1", letterSpacing: "0.01em", fontWeight: "500"}],
+            "label-mono": ["0.75rem", {lineHeight: "1.4", letterSpacing: "0.04em", fontWeight: "500"}],
+            "headline-lg-mobile": ["2rem", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600"}],
+            "body-lg": ["1.125rem", {lineHeight: "1.65", letterSpacing: "-0.01em", fontWeight: "400"}],
+            "headline-lg": ["2.75rem", {lineHeight: "1.18", letterSpacing: "-0.03em", fontWeight: "600"}],
+            "body-md": ["0.9375rem", {lineHeight: "1.6", letterSpacing: "-0.005em", fontWeight: "400"}]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-background font-body-md text-slate-800 antialiased selection:bg-slate-200 selection:text-slate-900">
+<!-- HEADER -->
+<header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_1px_4px_rgba(0,0,0,0.03)]">
+<div class="h-16 max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-gutter">
+<a class="flex items-center gap-space-sm group" data-path="portfolio-overview" href="#">
+<div class="w-8 h-8 rounded bg-slate-900 flex items-center justify-center text-white">
+<span class="font-label-mono text-label-mono font-bold tracking-tight">CT</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-slate-900 tracking-tight font-bold">Portfolio</span>
+</a>
+<nav class="hidden md:flex items-center gap-space-xs p-1 rounded-lg bg-slate-100/80 border border-slate-200/60" data-active-classes="bg-white text-slate-900 shadow-sm">
+<a aria-current="page" class="font-label-ui px-space-md py-space-sm rounded transition-all bg-white text-slate-900 font-semibold shadow-sm" data-path="portfolio-overview" href="#about">About</a>
+<a class="font-label-ui text-label-ui px-space-md py-space-sm rounded text-slate-600 hover:text-slate-900 hover:bg-white/60 transition-colors" data-path="services-and-craft" href="#services">Services</a>
+<a class="font-label-ui text-label-ui px-space-md py-space-sm rounded text-slate-600 hover:text-slate-900 hover:bg-white/60 transition-colors" data-path="featured-projects" href="#projects">Projects</a>
+<a class="font-label-ui text-label-ui px-space-md py-space-sm rounded text-slate-600 hover:text-slate-900 hover:bg-white/60 transition-colors" data-path="contact-inquiries" href="#contact">Contact</a>
+</nav>
+<div class="flex items-center gap-space-md">
+<a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-sm rounded bg-slate-900 text-white font-label-ui text-label-ui hover:bg-slate-800 transition-all shadow-sm" data-path="resume" href="#resume">Resume</a>
+<div class="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN -->
+<main class="w-full pt-16 bg-white min-h-[calc(100vh-16rem)]">
+<div class="flex flex-col w-full">
+<!-- SECTION 1: HERO & BIO -->
+<section class="w-full relative overflow-hidden py-space-xl lg:py-24 bg-white" id="about">
+<!-- Subtle Ambient Diffuse Lighting -->
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-blue-100/40 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<div class="absolute top-1/3 -right-20 w-[420px] h-[320px] bg-emerald-100/30 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Left Text Column -->
+<div class="lg:col-span-8 flex flex-col items-start gap-space-lg">
+<!-- Availability Pill & Status Marker -->
+<div class="inline-flex items-center gap-space-sm px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-mono text-label-mono text-emerald-800 font-medium uppercase tracking-wider">Available for Select Q2/Q3 Collaborations</span>
+</div>
+<!-- Hero Headline -->
+<h1 class="font-headline-lg lg:font-display text-headline-lg lg:text-display text-slate-900 tracking-tight font-bold">
+                Crafting minimalist digital products with code, motion &amp; intentional design.
+              </h1>
+<!-- Lead Bio -->
+<p class="font-body-lg text-body-lg text-slate-600 max-w-2xl leading-relaxed">
+                I am <span class="text-slate-900 font-semibold">Elena Vance</span>, a Senior Product Designer &amp; Creative Developer with 8+ years building resilient design systems, immersive 3D web spaces, and production-grade architectures.
+              </p>
+<!-- CTAs & Fast Actions -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded bg-slate-900 text-white font-label-ui text-label-ui hover:bg-slate-800 hover:scale-[1.01] transition-all shadow-sm" href="#projects">
+<span>View Projects</span>
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded bg-white border border-slate-200 text-slate-800 font-label-ui text-label-ui hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm" href="#contact">
+<span>Get in Touch</span>
+<span class="material-symbols-outlined text-[16px]">north_east</span>
+</a>
+</div>
+<!-- Quick Metrics Bar -->
+<div class="grid grid-cols-3 gap-space-md md:gap-space-xl pt-space-md w-full max-w-xl border-t border-slate-100">
+<div class="flex flex-col gap-space-xs pt-space-sm">
+<span class="font-headline-md text-headline-md text-slate-900 font-bold">8+</span>
+<span class="font-label-mono text-label-mono text-slate-500 uppercase tracking-wider">Years Experience</span>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-sm">
+<span class="font-headline-md text-headline-md text-slate-900 font-bold">40+</span>
+<span class="font-label-mono text-label-mono text-slate-500 uppercase tracking-wider">Shipped Systems</span>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-sm">
+<span class="font-headline-md text-headline-md text-slate-900 font-bold">99.8%</span>
+<span class="font-label-mono text-label-mono text-slate-500 uppercase tracking-wider">Satisfaction Rate</span>
+</div>
+</div>
+</div>
+<!-- Right Portrait Column with Editorial Framing -->
+<div class="lg:col-span-4 flex justify-center lg:justify-end mt-space-md lg:mt-0">
+<div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+<!-- Delicate luminous back-card -->
+<div class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-slate-200 via-blue-100/50 to-slate-100 blur-lg opacity-70"></div>
+<div class="relative w-full h-full rounded-xl overflow-hidden bg-slate-100 border border-slate-200/80 shadow-lg">
+<img alt="Elena Vance - Senior Product Designer &amp; Creative Developer" class="w-full h-full object-cover grayscale contrast-105 hover:grayscale-0 transition-all duration-700 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1XdHRmQI_aIJqZ8j1Ysh1WtAbb8sxqfuLDhbbK9v1E2BitHTUIF8OpAWTFq3VyvRTywesFK-uFob7NhGQeunAQeWrPJ3w3EX-iDvCoRMn5WQDCZJqGUL-3gtrIydS3dBIqqBHO70ac5oi1USHYonbtuJvkcb62IbH5gZCKCIPoAiFmMY5bIdVB5C0x-dd3MOgwSQipcQGhOp5tvPQi_45mRAqSE5xR-p83ZVzB0rbeXh1d8aZ4Emdt3fLI"/>
+<div class="absolute bottom-0 inset-x-0 p-space-md bg-gradient-to-t from-white via-white/90 to-transparent flex items-center justify-between border-t border-slate-100/60">
+<div>
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold block leading-none">Elena Vance</span>
+<span class="font-label-mono text-label-mono text-emerald-700 font-medium">SF / Remote</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-emerald-600">verified</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: SERVICES & CRAFT -->
+<section class="w-full py-space-xl bg-slate-50/70 border-y border-slate-200/60" id="services">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex flex-col gap-space-xl">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono text-label-mono text-emerald-700 font-medium uppercase tracking-wider">Methodology &amp; Disciplines</span>
+<h2 class="font-headline-lg text-headline-lg text-slate-900 font-bold">Capabilities built for modern scale.</h2>
+</div>
+<p class="font-body-md text-body-md text-slate-600 max-w-md">
+              Bridging visual precision with engineering rigor. Designing high-density experiences that execute smoothly across browsers.
+            </p>
+</div>
+<!-- 3-Column Services Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<article class="p-space-lg rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all duration-300 flex flex-col justify-between group shadow-sm">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-slate-400 group-hover:text-slate-700 transition-colors font-medium">01</span>
+<div class="w-10 h-10 rounded bg-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-slate-900 group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold">Product Design &amp; UI/UX</h3>
+<p class="font-body-md text-body-md text-slate-600">
+                  Architecting multi-platform design systems, interaction patterns, wireframes, and enterprise prototypes optimized for cognitive ease.
+                </p>
+</div>
+<div class="flex flex-wrap gap-space-xs pt-space-lg">
+<span class="px-space-sm py-0.5 rounded text-label-mono font-label-mono bg-slate-100 text-slate-700 border border-slate-200/50">Design Systems</span>
+<span class="px-space-sm py-0.5 rounded text-label-mono font-label-mono bg-slate-100 text-slate-700 border border-slate-200/50">Figma Tokens</span>
+<span class="px-space-sm py-0.5 rounded text-label-mono font-label-mono bg-slate-100 text-slate-700 border border-slate-200/50">Prototyping</span>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="p-space-lg rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all duration-300 flex flex-col justify-between group shadow-sm">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-slate-400 group-hover:text-slate-700 transition-colors font-medium">02</span>
+<div class="w-10 h-10 rounded bg-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-slate-900 group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold">Frontend &amp; Creative Dev</h3>
+<p class="font-body-md text-body-md text-slate-600">
+                  Engineered with modern frameworks, WebGL visualizers, reactive state, and sub-second Lighthouse scores for maximum product velocity.
+                </p>
+</div>
+<div class="flex flex-wrap gap-space-xs pt-space-lg">
+<span class="px-space-sm py-0.5 rounded text-label-mono font-label-mono bg-slate-100 text-slate-700 border border-slate-200/50">React &amp; Next.js</span>
+<span class="px-space-sm py-0.5 rounded text-label-mono font-label-mono bg-slate-100 text-slate-700 border border-slate-200/50">Three.js / WebGL</span>
+<span class="px-space-sm py-0.5 rounded text-label-mono font-label-mono bg-slate-100 text-slate-700 border border-slate-200/50">Tailwind</span>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="p-space-lg rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all duration-300 flex flex-col justify-between group shadow-sm">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-slate-400 group-hover:text-slate-700 transition-colors font-medium">03</span>
+<div class="w-10 h-10 rounded bg-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-slate-900 group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold">Brand Strategy &amp; Identity</h3>
+<p class="font-body-md text-body-md text-slate-600">
+                  Translating core company narratives into high-contrast brand foundations: editorial typography, spatial guidelines, and bespoke packaging.
+                </p>
+</div>
+<div class="flex flex-wrap gap-space-xs pt-space-lg">
+<span class="px-space-sm py-0.5 rounded text-label-mono font-label-mono bg-slate-100 text-slate-700 border border-slate-200/50">Art Direction</span>
+<span class="px-space-sm py-0.5 rounded text-label-mono font-label-mono bg-slate-100 text-slate-700 border border-slate-200/50">Typography</span>
+<span class="px-space-sm py-0.5 rounded text-label-mono font-label-mono bg-slate-100 text-slate-700 border border-slate-200/50">Packaging</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- SECTION 3: PROJECT GALLERY -->
+<section class="w-full py-space-xl bg-white" id="projects">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex flex-col gap-space-xl">
+<!-- Gallery Top Header & Category Tabs -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono text-label-mono text-emerald-700 font-medium uppercase tracking-wider">Curated Archive</span>
+<h2 class="font-headline-lg text-headline-lg text-slate-900 font-bold">Selected Case Studies</h2>
+</div>
+<!-- Filter Buttons -->
+<div class="flex items-center gap-space-xs p-1 rounded-lg bg-slate-100 border border-slate-200/80" id="gallery-filters">
+<button class="filter-btn active px-space-md py-space-xs rounded font-label-mono text-label-mono bg-slate-900 text-white font-medium shadow-sm transition-all" data-filter="all">All (4)</button>
+<button class="filter-btn px-space-md py-space-xs rounded font-label-mono text-label-mono text-slate-600 hover:text-slate-900 transition-all" data-filter="web">Web &amp; 3D</button>
+<button class="filter-btn px-space-md py-space-xs rounded font-label-mono text-label-mono text-slate-600 hover:text-slate-900 transition-all" data-filter="mobile">Fintech</button>
+<button class="filter-btn px-space-md py-space-xs rounded font-label-mono text-label-mono text-slate-600 hover:text-slate-900 transition-all" data-filter="brand">Brand &amp; System</button>
+</div>
+</div>
+<!-- Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter" id="projects-grid">
+<!-- Project 1: Axiom 3D Architecture -->
+<div class="project-item group flex flex-col gap-space-md p-space-md rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-lg transition-all duration-300 shadow-sm" data-category="web">
+<div class="relative w-full h-72 sm:h-80 lg:h-96 rounded-lg overflow-hidden bg-slate-100 border border-slate-200/50">
+<img alt="Axiom 3D Architecture Experience" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1XL-tlU3-jM7nkvln-Yw3N1M1clY3JajneEMs9wvjL72ATcOIOyVMlNO4LU8z8LopuPGN4mC4YRj0zmJONnXYmvD8OS3eFxs0uxcMlp0OmQSSOy8k6QXaNscqwxoEBholOxRYgIuqQepZpfrEVRcLWXV7HPGrMA0_0i4ZjxsjNwCowvUCEF66aaSkMqPo5tvGLxd8uv4X3PMlGJeMi_k3__gLxl5EEAemufatKJ5VblA80QrTSOKQ_zLho3"/>
+<div class="absolute top-space-sm right-space-sm px-2.5 py-1 rounded bg-white/90 backdrop-blur-md border border-slate-200/60 shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-800 font-medium">WebGL / Three.js</span>
+</div>
+<button class="absolute inset-0 w-full h-full bg-slate-900/30 opacity-0 group-hover:opacity-100 backdrop-blur-xs transition-opacity flex items-center justify-center gap-space-xs text-white font-label-ui text-label-ui font-semibold" onclick="openModal('axiom')">
+<span class="bg-slate-900/85 px-4 py-2 rounded shadow-md flex items-center gap-2">Explore Architecture Case Study <span class="material-symbols-outlined text-[18px]">visibility</span></span>
+</button>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-emerald-700 font-medium">Axiom Spatial Studio · 2024</span>
+<span class="font-label-mono text-label-mono text-slate-500">Live Architecture</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold group-hover:text-blue-600 transition-colors">Axiom: Spatial 3D Architecture</h3>
+<p class="font-body-md text-body-md text-slate-600 line-clamp-2">
+                  High-fidelity interactive 3D web experience mapping cantilevered architectural volumes with procedural day-night lighting.
+                </p>
+</div>
+</div>
+<!-- Project 2: Quantum Finance -->
+<div class="project-item group flex flex-col gap-space-md p-space-md rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-lg transition-all duration-300 shadow-sm" data-category="mobile">
+<div class="relative w-full h-72 sm:h-80 lg:h-96 rounded-lg overflow-hidden bg-slate-100 border border-slate-200/50">
+<img alt="Quantum Finance Modern Fintech Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1X4R8Ah7cfhmGJ6oXVV5C0QP2ZwerJHITaXzpDpG8nKVQzVd0kXwDLUvUxrPD2XmntgTuj6CH33HImc0wT6TLhgAw0wpg1q2KOVpsL9gUffKEGX5yaHQmOiEIB-gy6jpPDUeNkU-hrgJmUAG4QvAhcth006JEqiXNHn2kQs5gMCg8RDyOJlyyEJ75QCGIElggulnk8fTH-kzl4LhSL0j4Q65kC6lX1SXdF_IQpV0MhR_h3JMrRRDvTtewT9"/>
+<div class="absolute top-space-sm right-space-sm px-2.5 py-1 rounded bg-white/90 backdrop-blur-md border border-slate-200/60 shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-800 font-medium">Mobile Fintech UI</span>
+</div>
+<button class="absolute inset-0 w-full h-full bg-slate-900/30 opacity-0 group-hover:opacity-100 backdrop-blur-xs transition-opacity flex items-center justify-center gap-space-xs text-white font-label-ui text-label-ui font-semibold" onclick="openModal('quantum')">
+<span class="bg-slate-900/85 px-4 py-2 rounded shadow-md flex items-center gap-2">View Fintech Specs <span class="material-symbols-outlined text-[18px]">visibility</span></span>
+</button>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-emerald-700 font-medium">Quantum Global · 2024</span>
+<span class="font-label-mono text-label-mono text-slate-500">Design System &amp; App</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold group-hover:text-blue-600 transition-colors">Quantum Finance: Dark Mode Core</h3>
+<p class="font-body-md text-body-md text-slate-600 line-clamp-2">
+                  Next-generation multi-asset portfolio monitor featuring luminous balance metrics, smooth gesture routing, and custom SVG visualizers.
+                </p>
+</div>
+</div>
+<!-- Project 3: Aura Botanical Skincare -->
+<div class="project-item group flex flex-col gap-space-md p-space-md rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-lg transition-all duration-300 shadow-sm" data-category="brand">
+<div class="relative w-full h-72 sm:h-80 lg:h-96 rounded-lg overflow-hidden bg-slate-100 border border-slate-200/50">
+<img alt="Aura Botanical Skincare Brand Identity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1UFWFdxFvSppfmQEbgU7y3ryV1tbJwSCkEqGZ-vM95qRupyPEFf_SxO415V6hc_IxpfyWtSaNH75Nnpl5Q6Pe09sirakqsANvtWnNQfdJ-1AOZBOPKIfGP6PCx03oqXdu4MSjc_7HoJ1DDPHSX52N2FOUdhY3U6Oq7wA_30LNGOoyogb_YHhEKJtp5ocWyGkitsjn6FBe6T4T_M6RgWG3D7KDY0fbifdeZP48eOYTQrKxYKfwKyQsOkygBL"/>
+<div class="absolute top-space-sm right-space-sm px-2.5 py-1 rounded bg-white/90 backdrop-blur-md border border-slate-200/60 shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-800 font-medium">Brand &amp; Packaging</span>
+</div>
+<button class="absolute inset-0 w-full h-full bg-slate-900/30 opacity-0 group-hover:opacity-100 backdrop-blur-xs transition-opacity flex items-center justify-center gap-space-xs text-white font-label-ui text-label-ui font-semibold" onclick="openModal('aura')">
+<span class="bg-slate-900/85 px-4 py-2 rounded shadow-md flex items-center gap-2">View Identity System <span class="material-symbols-outlined text-[18px]">visibility</span></span>
+</button>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-emerald-700 font-medium">Aura Care · 2023</span>
+<span class="font-label-mono text-label-mono text-slate-500">Sustainable Packaging</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold group-hover:text-blue-600 transition-colors">Aura: Botanical Minimalist Packaging</h3>
+<p class="font-body-md text-body-md text-slate-600 line-clamp-2">
+                  Holistic brand strategy, recycled paper tactile boxes, custom geometric iconography, and an editorial product field guide.
+                </p>
+</div>
+</div>
+<!-- Project 4: Nova Collaborative Workspace -->
+<div class="project-item group flex flex-col gap-space-md p-space-md rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-lg transition-all duration-300 shadow-sm" data-category="web">
+<div class="relative w-full h-72 sm:h-80 lg:h-96 rounded-lg overflow-hidden bg-slate-100 border border-slate-200/50">
+<img alt="Nova Workspace Productivity Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1XZsbnbi87iEGQhvZh2q_4QKVqbpuV7Y8ndpAKG5TzIlEe-7BUSvPMEr9b8sN52N3FT1gWglr6dKMWi8zXLI5gwh4bCmd-OHovZlOAiGgUojA8TSJdl6SKzg16pfyhug8d1awm0OaLBJfJcOx-qBW954xhg3BveUGSKFL9uAy1RdnEKSveOq-Rd8OrkzEzaKUgbD6Bx4BXBHwWivxu40ThBUkAZqjkvnXIF26Osxt6TZJGcipgRxiEcdf4"/>
+<div class="absolute top-space-sm right-space-sm px-2.5 py-1 rounded bg-white/90 backdrop-blur-md border border-slate-200/60 shadow-sm">
+<span class="font-label-mono text-label-mono text-slate-800 font-medium">Tablet &amp; SaaS UX</span>
+</div>
+<button class="absolute inset-0 w-full h-full bg-slate-900/30 opacity-0 group-hover:opacity-100 backdrop-blur-xs transition-opacity flex items-center justify-center gap-space-xs text-white font-label-ui text-label-ui font-semibold" onclick="openModal('nova')">
+<span class="bg-slate-900/85 px-4 py-2 rounded shadow-md flex items-center gap-2">View Productivity Dashboard <span class="material-symbols-outlined text-[18px]">visibility</span></span>
+</button>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-emerald-700 font-medium">Nova Labs · 2023</span>
+<span class="font-label-mono text-label-mono text-slate-500">SaaS Platform</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold group-hover:text-blue-600 transition-colors">Nova: Async Creative Workspace</h3>
+<p class="font-body-md text-body-md text-slate-600 line-clamp-2">
+                  Cross-device multi-user workspace featuring micro-calendars, kanban tracking, contextual commenting, and low-latency canvas synchronization.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- MODAL / DETAIL VIEW OVERLAY -->
+<div class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-space-mobile md:p-space-lg" id="case-modal">
+<div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl bg-white p-space-lg shadow-2xl border border-slate-200 flex flex-col gap-space-lg">
+<!-- Close Button -->
+<button class="absolute top-space-md right-space-md w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-700 transition-colors" onclick="closeModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<!-- Dynamic Modal Content Containers -->
+<div class="flex flex-col gap-space-md" id="modal-content">
+<!-- Injected dynamically via JS below -->
+</div>
+</div>
+</div>
+<!-- SECTION 4: CONTACT & INQUIRY FORM -->
+<section class="w-full py-space-xl bg-slate-50 border-t border-slate-200/80" id="contact">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Contact Meta & Direct Info -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono text-label-mono text-emerald-700 font-medium uppercase tracking-wider">Start A Conversation</span>
+<h2 class="font-headline-lg text-headline-lg text-slate-900 font-bold">Let's build something remarkable.</h2>
+</div>
+<p class="font-body-lg text-body-lg text-slate-600 leading-relaxed">
+                Whether you are launching an early-stage venture, refining an enterprise design system, or crafting a standout interactive web showcase.
+              </p>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-white border border-slate-200 shadow-xs flex items-center justify-center text-emerald-700">
+<span class="material-symbols-outlined text-[20px]">alternate_email</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-slate-500">Direct Channel</span>
+<a class="font-headline-sm text-headline-sm text-slate-900 font-bold hover:text-emerald-700 transition-colors" href="mailto:elena@vance.design">elena@vance.design</a>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-white border border-slate-200 shadow-xs flex items-center justify-center text-emerald-700">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-slate-500">Location</span>
+<span class="font-body-md text-body-md text-slate-900 font-medium">San Francisco, CA · Remote Worldwide</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-white border border-slate-200 shadow-xs flex items-center justify-center text-emerald-700">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-slate-500">Current Availability</span>
+<span class="font-body-md text-body-md text-slate-900 font-medium">Accepting select client sprints from May 2024</span>
+</div>
+</div>
+</div>
+<!-- Network Badges -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-sm font-label-mono text-label-mono">
+<a class="px-space-md py-space-xs rounded bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all shadow-xs" href="https://github.com" rel="noreferrer" target="_blank">GitHub</a>
+<a class="px-space-md py-space-xs rounded bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all shadow-xs" href="https://linkedin.com" rel="noreferrer" target="_blank">LinkedIn</a>
+<a class="px-space-md py-space-xs rounded bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all shadow-xs" href="https://read.cv" rel="noreferrer" target="_blank">Read.cv</a>
+<a class="px-space-md py-space-xs rounded bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all shadow-xs" href="https://x.com" rel="noreferrer" target="_blank">X/Twitter</a>
+<a class="px-space-md py-space-xs rounded bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all shadow-xs" href="https://dribbble.com" rel="noreferrer" target="_blank">Dribbble</a>
+</div>
+</div>
+<!-- Interactive Contact Form -->
+<div class="lg:col-span-7 p-space-lg rounded-xl bg-white border border-slate-200 shadow-md">
+<form class="flex flex-col gap-space-md" id="contact-form" onsubmit="handleFormSubmit(event)">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-ui text-label-ui text-slate-700 font-medium" for="name">Your Name</label>
+<input class="w-full px-space-md py-space-sm rounded bg-white border border-slate-300 text-slate-900 font-body-md text-body-md placeholder:text-slate-400 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors" id="name" placeholder="Elena Rostova" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-ui text-label-ui text-slate-700 font-medium" for="email">Email Address</label>
+<input class="w-full px-space-md py-space-sm rounded bg-white border border-slate-300 text-slate-900 font-body-md text-body-md placeholder:text-slate-400 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors" id="email" placeholder="elena@company.com" required="" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-ui text-label-ui text-slate-700 font-medium" for="service-interest">Project Scope</label>
+<select class="w-full px-space-md py-space-sm rounded bg-white border border-slate-300 text-slate-900 font-body-md text-body-md focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors" id="service-interest">
+<option value="Product Design">Full Product Design &amp; System</option>
+<option value="Frontend Development">Creative Engineering / Next.js</option>
+<option value="Brand Identity">Brand Direction &amp; Packaging</option>
+<option value="Full Retainer">Multi-Disciplinary Retainer</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-ui text-label-ui text-slate-700 font-medium" for="budget">Estimated Budget</label>
+<select class="w-full px-space-md py-space-sm rounded bg-white border border-slate-300 text-slate-900 font-body-md text-body-md focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors" id="budget">
+<option value="$10k-$25k">$10k – $25k</option>
+<option value="$25k-$50k">$25k – $50k</option>
+<option value="$50k+">$50k+</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-ui text-label-ui text-slate-700 font-medium" for="message">Project Brief &amp; Goals</label>
+<textarea class="w-full px-space-md py-space-sm rounded bg-white border border-slate-300 text-slate-900 font-body-md text-body-md placeholder:text-slate-400 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors resize-none" id="message" placeholder="Tell me about your product timeline, tech stack, and primary vision..." required="" rows="4"></textarea>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs text-slate-500 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-emerald-600">lock</span>
+<span>Encrypted &amp; direct to inbox</span>
+</div>
+<button class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded bg-slate-900 text-white font-label-ui text-label-ui hover:bg-slate-800 transition-all shadow-sm" id="submit-btn" type="submit">
+<span>Send Inquiry</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+<!-- Submission Confirmation State -->
+<div class="hidden p-space-md rounded-lg bg-emerald-50 border border-emerald-200 flex items-center gap-space-md" id="form-success">
+<div class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">done</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-emerald-950 font-bold">Inquiry Dispatched</span>
+<span class="font-body-sm text-body-sm text-emerald-800">Thank you! Elena will review your brief and respond within 24 hours.</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="w-full bg-white border-t border-slate-200 py-space-xl">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="flex flex-col items-center md:items-start gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-slate-900 font-bold">Creative Technologist</span>
+<p class="font-label-mono text-label-mono text-slate-500">© 2024 All rights reserved. Architected with digital craft.</p>
+</div>
+<div class="flex items-center gap-space-md font-label-mono text-label-mono">
+<a class="text-slate-600 hover:text-slate-900 transition-colors flex items-center gap-space-xs" href="https://github.com" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span>GitHub</span>
+</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors flex items-center gap-space-xs" href="https://linkedin.com" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px]">work</span>
+<span>LinkedIn</span>
+</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors flex items-center gap-space-xs" href="https://x.com" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px]">alternate_email</span>
+<span>X/Twitter</span>
+</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors flex items-center gap-space-xs" href="https://dribbble.com" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px]">palette</span>
+<span>Dribbble</span>
+</a>
+</div>
+</div>
+</footer>
+<!-- CLIENT-SIDE SCRIPT FOR FILTERING & MODAL INTERACTION -->
+<script>
+    // Tab Filter Logic
+    const filterButtons = document.querySelectorAll('#gallery-filters .filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-slate-900', 'text-white', 'shadow-sm', 'active');
+          b.classList.add('text-slate-600');
+        });
+        btn.classList.add('bg-slate-900', 'text-white', 'shadow-sm', 'active');
+        btn.classList.remove('text-slate-600');
+
+        const filter = btn.getAttribute('data-filter');
+        projectItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Case Study Detail Modal Specs
+    const modalData = {
+      axiom: {
+        title: "Axiom: Spatial 3D Architecture",
+        category: "Interactive 3D WebGL Web Experience",
+        metrics: "Sub-16ms Framerate · 98 Lighthouse Score · 45% Conversion Surge",
+        img: "https://lh3.googleusercontent.com/aida/AEtjO1XL-tlU3-jM7nkvln-Yw3N1M1clY3JajneEMs9wvjL72ATcOIOyVMlNO4LU8z8LopuPGN4mC4YRj0zmJONnXYmvD8OS3eFxs0uxcMlp0OmQSSOy8k6QXaNscqwxoEBholOxRYgIuqQepZpfrEVRcLWXV7HPGrMA0_0i4ZjxsjNwCowvUCEF66aaSkMqPo5tvGLxd8uv4X3PMlGJeMi_k3__gLxl5EEAemufatKJ5VblA80QrTSOKQ_zLho3",
+        description: "Axiom required a breakthrough digital presence capable of showcasing complex structural elevations in full real-time 3D. We integrated WebGL render passes with zero jank, coupled with minimalist Swiss typography and an architectural line grid system.",
+        tags: ["Three.js", "GLSL Shaders", "Tailwind CSS", "Next.js 14", "Spatial UI"]
+      },
+      quantum: {
+        title: "Quantum Finance: Modern Fintech Ecosystem",
+        category: "Fintech Mobile Application & Cross-Platform UI",
+        metrics: "4.9 App Store Rating · $2.4B Monitored Volume · 240k MAU",
+        img: "https://lh3.googleusercontent.com/aida/AEtjO1X4R8Ah7cfhmGJ6oXVV5C0QP2ZwerJHITaXzpDpG8nKVQzVd0kXwDLUvUxrPD2XmntgTuj6CH33HImc0wT6TLhgAw0wpg1q2KOVpsL9gUffKEGX5yaHQmOiEIB-gy6jpPDUeNkU-hrgJmUAG4QvAhcth006JEqiXNHn2kQs5gMCg8RDyOJlyyEJ75QCGIElggulnk8fTH-kzl4LhSL0j4Q65kC6lX1SXdF_IQpV0MhR_h3JMrRRDvTtewT9",
+        description: "A dual-mode fintech dashboard built for serious wealth managers. Highlights include custom low-latency chart engines, dynamic gradient glow cues for market fluctuations, and ergonomic quick-action gestures for transfers.",
+        tags: ["React Native", "Tailwind Design System", "SVG Visualizers", "Biometric Auth", "Dark Mode"]
+      },
+      aura: {
+        title: "Aura: Botanical Minimalist Packaging",
+        category: "Sustainable Brand Architecture & Packaging",
+        metrics: "Dieline System 100% Recyclable · 12 Product Lines · Global Distribution",
+        img: "https://lh3.googleusercontent.com/aida/AEtjO1UFWFdxFvSppfmQEbgU7y3ryV1tbJwSCkEqGZ-vM95qRupyPEFf_SxO415V6hc_IxpfyWtSaNH75Nnpl5Q6Pe09sirakqsANvtWnNQfdJ-1AOZBOPKIfGP6PCx03oqXdu4MSjc_7HoJ1DDPHSX52N2FOUdhY3U6Oq7wA_30LNGOoyogb_YHhEKJtp5ocWyGkitsjn6FBe6T4T_M6RgWG3D7KDY0fbifdeZP48eOYTQrKxYKfwKyQsOkygBL",
+        description: "Aura's visual system pairs warm, natural beige paper stocks with sharp geometric emblems and crisp typography. The work spanned tactile packaging boxes, amber droplet bottles, an editorial ritual manual, and sustainable tote bags.",
+        tags: ["Art Direction", "Packaging Dielines", "Editorial System", "Iconography", "Luxury Print"]
+      },
+      nova: {
+        title: "Nova: Async Collaborative Workspace",
+        category: "SaaS Productivity & Interactive Canvas",
+        metrics: "99.99% Uptime · Multi-Region WebSockets · 60fps Canvas Render",
+        img: "https://lh3.googleusercontent.com/aida/AEtjO1XZsbnbi87iEGQhvZh2q_4QKVqbpuV7Y8ndpAKG5TzIlEe-7BUSvPMEr9b8sN52N3FT1gWglr6dKMWi8zXLI5gwh4bCmd-OHovZlOAiGgUojA8TSJdl6SKzg16pfyhug8d1awm0OaLBJfJcOx-qBW954xhg3BveUGSKFL9uAy1RdnEKSveOq-Rd8OrkzEzaKUgbD6Bx4BXBHwWivxu40ThBUkAZqjkvnXIF26Osxt6TZJGcipgRxiEcdf4",
+        description: "Nova simplifies the chaos of creative project management on tablets and desktops. Featuring a distraction-free modular sidebar, card-based sprint visualization, and real-time team feedback cursors.",
+        tags: ["Tablet UX", "Productivity Design", "Design Tokens", "SaaS Dashboard", "Micro-Interactions"]
+      }
+    };
+
+    function openModal(id) {
+      const data = modalData[id];
+      if (!data) return;
+      const content = document.getElementById('modal-content');
+      content.innerHTML = `
+        <div class="relative w-full h-80 sm:h-96 rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
+          <img src="${data.img}" alt="${data.title}" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex flex-col gap-space-xs">
+          <span class="font-label-mono text-label-mono text-emerald-700 font-semibold uppercase tracking-wider">${data.category}</span>
+          <h2 class="font-headline-md text-headline-md text-slate-900 font-bold">${data.title}</h2>
+          <div class="py-1 px-space-sm rounded bg-slate-100 border border-slate-200 w-fit font-label-mono text-label-mono text-slate-800 font-medium">
+            ${data.metrics}
+          </div>
+        </div>
+        <p class="font-body-lg text-body-lg text-slate-600 leading-relaxed">
+          ${data.description}
+        </p>
+        <div class="flex flex-wrap gap-space-xs pt-space-xs">
+          ${data.tags.map(t => `<span class="px-space-md py-1 rounded bg-slate-100 border border-slate-200 text-label-mono font-label-mono text-slate-800 font-medium">${t}</span>`).join('')}
+        </div>
+      `;
+      document.getElementById('case-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('case-modal').classList.add('hidden');
+    }
+
+    // Interactive Form Handling
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submit-btn');
+      const formSuccess = document.getElementById('form-success');
+      
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>Sending...</span>`;
+
+      setTimeout(() => {
+        submitBtn.classList.add('hidden');
+        formSuccess.classList.remove('hidden');
+      }, 700);
+    }
+  </script>
+</body></html>
