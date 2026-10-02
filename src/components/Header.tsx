@@ -40,11 +40,13 @@ export function Header() {
       <AppBar
         position="fixed"
         elevation={0}
+        color="transparent"
         sx={{
           bgcolor: isDark ? 'rgba(18,19,20,0.8)' : 'rgba(255,255,255,0.9)',
           backdropFilter: 'blur(20px)',
           borderBottom: isDark ? 'none' : '1px solid',
           borderColor: 'divider',
+          color: 'text.primary',
           boxShadow: isDark
             ? '0 1px 8px rgba(0,0,0,0.04)'
             : '0 1px 4px rgba(0,0,0,0.03)',
@@ -85,7 +87,10 @@ export function Header() {
                 {profile.initials}
               </Typography>
             </Box>
-            <Typography variant="h4" sx={{ fontSize: '1.25rem', fontWeight: 600 }}>
+            <Typography
+              variant="h4"
+              sx={{ fontSize: '1.25rem', fontWeight: 600, color: 'text.primary' }}
+            >
               Portfolio
             </Typography>
           </Stack>

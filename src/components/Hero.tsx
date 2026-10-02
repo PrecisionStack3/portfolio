@@ -11,7 +11,7 @@ export function Hero() {
   const isDark = theme.palette.mode === 'dark'
 
   return (
-    <Section id="about" sx={{ pt: { xs: 10, lg: 12 }, pb: { xs: 6, lg: 10 } }}>
+    <Section id="about" sx={{ pt: { xs: 3, lg: 4 }, pb: { xs: 6, lg: 10 } }}>
       <Box
         sx={{
           position: 'absolute',
